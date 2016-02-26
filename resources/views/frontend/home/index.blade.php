@@ -36,7 +36,7 @@
 			
 			<h5 class="page-box__title"><a href="{{$box->link}}">{{$box->name}}</a></h5>
 			
-			<p>{{mb_substr($box->description,0,55,'UTF-8')}}</p>
+			<p>{{mb_substr($box->description,0,80,'UTF-8')}}</p>
 			
 			<p>
 				<a class="read-more" href="{{$box->link}}">Đọc thêm</a>
