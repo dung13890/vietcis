@@ -785,7 +785,7 @@ input, select, textarea { outline: 0; }
 .hr-quote::after { position: absolute; content: '“'; font-family: Georgia, "Times New Roman"; right: calc(50% - 5px); top: calc(50% - 22px); color: #e21f2f; font-size: 40px; width: 10px; height: 10px; }
 
 
-.row.first { margin-bottom: 80px; }
+.row.first { margin-bottom: 25px; }
 
 .margin-top-0 { margin-top: 0px !important; }
 
