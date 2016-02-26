@@ -15,7 +15,7 @@
 			
 				<h3 class="widget-title">{{$boxHome[0]->name}}</h3>
 				
-				<p>{{$boxHome[0]->description}}</p>
+				<p> {{mb_substr($boxHome[0]->description,0,175,'UTF-8')}}</p>
 				
 				<p>
 					<a class="read-more" href="{{$boxHome[0]->link}}">XEM TIẾP</a>
@@ -36,7 +36,7 @@
 			
 			<h5 class="page-box__title"><a href="{{$box->link}}">{{$box->name}}</a></h5>
 			
-			<p>{{$box->description}}</p>
+			<p>{{mb_substr($box->description,0,55,'UTF-8')}}</p>
 			
 			<p>
 				<a class="read-more" href="{{$box->link}}">Đọc thêm</a>
@@ -52,7 +52,7 @@
 		<div class="col-sm-12">
 			
 			<h3 class="widget-title big lined">
-				<span>SẢN PHẨM VÀ DỊCH VỤ</span>
+				<span>Sản phẩm và dịch vụ</span>
 			</h3>
 			
 		</div><!-- /.col -->
@@ -66,7 +66,7 @@
 			@foreach($chunk as $service)
 			<div class="widget_pw_icon_box margin-bottom-30">
 				<a target="_self" href="{{$service->link}}" class="icon-box">
-					<i class="fa {{$service->icon_fa}}"></i>
+					<img src="{{route('image.resize',[$service->icon_fa,45,45])}}">
 					<h4 class="icon-box__title">{{$service->name}}</h4>
 					<span class="icon-box__subtitle">{{$service->description}}</span>
 				</a>
@@ -96,7 +96,7 @@
 						Bạn cần được tư vấn để hiểu rõ hơn về dịch vụ và sản phẩm mình quan tâm?
 					</div>
 					<div class="call-to-action__button">
-						<a target="_blank" href="#" class="btn btn-primary">HÃY LIÊN HỆ NGAY</a> 
+						<a target="_blank" href="{{route('contact.show')}}" class="btn btn-primary">HÃY LIÊN HỆ NGAY</a> 
 					</div>
 				</div><!-- /.call-to-action -->
 			
@@ -108,56 +108,6 @@
 	
 </div><!-- /.cta -->
 
-<!-- NEWS -->
-<div class="news margin-bottom-60">
-
-	<div class="container">
-		<div class="row">
-		@foreach($posts->splice(0,2) as $postNew)
-			
-			<div class="col-sm-4 margin-bottom-30">
-				
-				<div class="widget_pw_latest_news">
-					<a class="latest-news" href="{{route('post.show',$postNew->slug)}}">
-						<div class="latest-news__date">
-							<div class="latest-news__date__month">{{date('M',strtotime($postNew->created_at))}}</div>
-							<div class="latest-news__date__day">{{date('d',strtotime($postNew->created_at))}}</div>
-						</div>
-						<img alt="{{$postNew->name}}" class="wp-post-image" src="{{route('image.resize',[$postNew->image,360,204])}}">
-						<div class="latest-news__content">
-							<h4 class="latest-news__title">{{mb_substr($postNew->name,0,25,'UTF-8')}}</h4>
-							<div class="latest-news__author">By {{$postNew->user->name}}</div>
-						</div>
-					</a>
-				</div><!-- /.widget_pw_latest_news -->
-				
-			</div><!-- /.col -->
-		@endforeach
-
-		<div class="col-sm-4">	
-			<div class="widget_pw_latest_news">
-				@foreach($posts->splice(0,3) as $post)
-				<a class="latest-news  latest-news--inline" href="{{route('post.show',$post->slug)}}">
-					<div class="latest-news__content">
-						<h4 class="latest-news__title">{{$post->name}}</h4>
-						<div class="latest-news__author">By {{$post->user->name}}</div>
-					</div>
-				</a>
-				@endforeach
-				@if (isset($posts[0]))
-				<a class="latest-news  latest-news--more-news" href="{{route('post.category',$posts[0]->categories->first()->slug)}}">
-					Các tin khác
-				</a>
-				@endif
-			</div><!-- /.widget_pw_latest_news -->
-		</div><!-- /.col -->
-			
-		</div><!-- /.row -->
-		
-	</div><!-- /.container -->
-
-</div><!-- /.news -->
-
 <!-- OUR PARTNERS -->
 <div class="container">
 	
@@ -168,7 +118,7 @@
 			<div class="widget_text">
 				
 				<h3 class="widget-title lined big">
-					<span>ĐỐI TÁC CỦA VIETCIS</span>
+					<span>Đối tác của VIETCIS</span>
 				</h3>
 				<div class="logo-panel">
 					<div class="row">

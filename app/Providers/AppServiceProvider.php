@@ -106,6 +106,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Services\Contracts\ServiceService::class,
             \App\Services\ServiceServiceJob::class
         );
+        $this->app->bind(
+            \App\Services\Contracts\MailService::class,
+            \App\Services\MailServiceJob::class
+        );
 
         $this->composers();
     }
@@ -122,9 +126,6 @@ class AppServiceProvider extends ServiceProvider
             }));
             $view->with('menuHead', Cache::remember('menuHead', 60, function () {
                 return app(MenuRepository::class)->root('head');
-            }));
-            $view->with('menuFooter', Cache::remember('menuFooter', 60, function () {
-                return app(MenuRepository::class)->root('footer')->take(2);
             }));
         });
 

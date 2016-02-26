@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('logo','Logo', ['class'=>'col-sm-2 control-label']) !!}
+			{!! Form::label('logo','Logo (208x98)', ['class'=>'col-sm-2 control-label']) !!}
 			<div class="col-md-8">
 				<div class="fileinput fileinput-new" style="width: 100%;" data-provides="fileinput">
 					<div class="fileinput-preview thumbnail mb20" data-trigger="fileinput" style="width: 100%; height: 150px;">

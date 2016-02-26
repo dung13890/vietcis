@@ -25,6 +25,7 @@ class ServiceRequest extends Request
     {
         return [
             'name' => "required|min:4|max:255",
+            'icon_fa' => 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
         ];
     }
 }

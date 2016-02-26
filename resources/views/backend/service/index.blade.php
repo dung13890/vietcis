@@ -23,7 +23,9 @@
 		    		if (data.actions.edit) {
 		    			$('td', row).eq(1).html('<a target="_blank" title="'+data.actions.edit.label+'" href="'+data.actions.edit.uri+'">'+data.name+'</a>');
 		    		}
-		    		$('td',row).eq(2).html('<i class="fa '+data.icon_fa+'"></i>');
+		    		if(data.icon_fa) {
+		    			$('td',row).eq(2).html('<img class="img-thumbnail" src="'+laroute.route('image.resize', {file:data.icon_fa,w:36,h:36})+'"/>');
+		    		}
 		    		var actions = data.actions;
 		    		if (!actions || actions.length < 1) { return; }
 		    		var $actions = $('td', row).eq(4);

@@ -30,17 +30,17 @@ class DashboardController extends AbstractController
         } else {
             $filename = (!filter_var($filename, FILTER_VALIDATE_URL) === false) ? urldecode($filename) : public_path(urldecode($filename));
         }
-        if(!\File::exists(storage_path('files/images'))) {
-            \File::makeDirectory(storage_path('files/images'), $mode = 0755, true, true);
+        if(!\File::exists(public_path('uploads/images/resize'))) {
+            \File::makeDirectory(public_path('uploads/images/resize'), $mode = 0755, true, true);
         }
         $name = pathinfo($filename, PATHINFO_FILENAME);
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        $path = 'files/images/' . $name . '-' . $width . 'x' . $height . '.' . $ext;
-        $destinationPath = storage_path($path);
+        $path = 'uploads/images/resize/' . $name . '-' . $width . 'x' . $height . '.' . $ext;
+        $destinationPath = public_path($path);
         if ( ! \File::isFile($destinationPath) ) {
             $imageResize = \Image::make($filename)->fit($width, $height)->save($destinationPath);
             return \Response::make($imageResize, 200, array('Content-Type' => $ext));
         }
-            return \Response::make(\Storage::get($path), 200, array('Content-Type' => $ext));
+            return redirect(asset($path)); 
     }
 }

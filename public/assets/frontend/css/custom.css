@@ -113,3 +113,40 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
+
+@media (min-width: 992px)
+{
+.header__logo {
+    width: 180px;
+    height: 120px;
+    padding-top: 18px;
+}
+}
+
+@media (min-width: 1600px)
+{
+.jumbotron {
+    margin-bottom: 100px;
+}
+}
+
+@media (max-width: 767px)
+{
+.hidden-xs {
+    display: none!important;
+}
+}
+
+@media (min-width: 992px)
+{
+.col-md-offset-4 {
+    margin-left: 33.33333333%;
+}
+}
+.widget_pw_icon_box img {
+    float: right;
+    font-size: 45px;
+    color: #b9babc;
+    padding: 10px 0 10px 10px;
+    transition: all 100ms ease-out;
+}

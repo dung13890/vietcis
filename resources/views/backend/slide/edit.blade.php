@@ -6,6 +6,7 @@
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
 		{!! Form::model($item, ['method' => 'PATCH', 'url' => route('admin.slide.update', $item->id), 'files' => true, 'class' => 'form-horizontal', 'autocomplete'=>'off']) !!}
+		{!!Form::hidden('type','slide')!!}
 		<div class="col-sm-10">
 			@include('backend.slide._form')       
 		</div>

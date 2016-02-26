@@ -26,13 +26,13 @@ class SlideRequest extends Request
         if($this->method()=='PATCH')
         {
             return [
-                'name' => "required|min:4|max:255",
+                'name' => "max:255",
                 'image' => 'image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             ];
         }
         else{
             return [
-                'name' => "required|min:4|max:255",
+                'name' => "max:255",
                 'image' => 'required|image|mimes:jpeg,jpg,gif,bmp,png|max:1200',
             ];
         }

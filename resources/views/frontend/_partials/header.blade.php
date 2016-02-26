@@ -1,14 +1,3 @@
-<!-- TOP BAR -->
-<div class="top">
-    
-    <div class="container">
-
-        <div class="top__tagline">{{$configs->title}}</div>
-        
-    </div><!-- /.container -->
-
-</div><!-- /.top -->
-
 <!-- HEADER -->
 <div class="header__container">
     
@@ -74,9 +63,6 @@
                             @endif
                         </li>
                         @endforeach
-                        <li>
-                            <a href="{{route('contact.show')}}">Liên hệ</a>
-                        </li>
                     </ul>
                 </nav>
             </div><!-- /.header__navigation -->
@@ -113,14 +99,12 @@
                     
                 </div>
             
-                <a target="_self" class="btn btn-info" id="button_requestQuote">YÊU CẦU BÁO GIÁ</a>
+                <a href="{{route('contact.show')}}" target="_self" class="btn btn-info" id="button_requestQuote">Liên hệ</a>
         
             </div><!-- /.header__widgets -->
         
             <div class="header__navigation-widgets">
                 <a target="_blank" href="{{$configs->facebook}}" class="social-icons__link"><i class="fa fa-facebook"></i></a>
-                <a target="_blank" href="{{$configs->twitter}}" class="social-icons__link"><i class="fa fa-twitter"></i></a>
-                <a target="_blank" href="{{$configs->google}}" class="social-icons__link"><i class="fa fa-google-plus"></i></a>
                 <a target="_blank" href="{{$configs->youtube}}" class="social-icons__link"><i class="fa fa-youtube"></i></a>
             </div>
     

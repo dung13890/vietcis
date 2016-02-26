@@ -22,7 +22,7 @@
 		<div class="form-group">
 			{!! Form::label('name','Text', ['class'=>'col-sm-2 control-label']) !!}
 			<div class="col-sm-8">
-			{!! Form::text('name',null, ['class' => 'form-control','required','placeholder'=>'ngăn cách bằng dấu "-"']) !!}
+			{!! Form::text('name',null, ['class' => 'form-control','placeholder'=>'ngăn cách bằng dấu "-"']) !!}
 			</div>
 		</div>
 		<div class="form-group">

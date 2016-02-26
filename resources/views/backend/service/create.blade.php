@@ -14,7 +14,7 @@
         </div>
     </div>
 	<div class="row">
-		{!! Form::open(['url' => route('admin.service.store'),'class' => 'form-horizontal','autocomplete'=>'off']) !!}
+		{!! Form::open(['url' => route('admin.service.store'), 'files' => true, 'class' => 'form-horizontal','autocomplete'=>'off']) !!}
 		<div class="col-sm-10">
 			@include('backend.service._form')       
 		</div>

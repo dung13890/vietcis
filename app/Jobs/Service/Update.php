@@ -20,6 +20,13 @@ class Update extends Job
 
     public function handle(ServiceRepository $repository)
     {
+        if (isset($this->attributes['icon_fa'])) {
+            $path = strtolower(class_basename($repository->getModel()));
+            if (!empty($this->entity->icon_fa)) {
+                $this->destroyImage($this->entity->icon_fa);
+            }
+            $this->attributes['icon_fa'] = $this->setImage($this->attributes['icon_fa'],$path);
+        }
         $repository->update($this->entity, $this->attributes);
     }
 }

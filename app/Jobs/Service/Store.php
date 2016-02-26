@@ -16,6 +16,10 @@ class Store extends Job
 
     public function handle(ServiceRepository $repository)
     {
+    	if (isset($this->attributes['icon_fa'])) {
+            $path = strtolower(class_basename($repository->getModel()));
+            $this->attributes['icon_fa'] = $this->setImage($this->attributes['icon_fa'],$path);
+        }
         $repository->create($this->attributes);
     }
 }

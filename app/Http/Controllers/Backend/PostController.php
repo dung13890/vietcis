@@ -9,7 +9,7 @@ use App\Services\Contracts\PostService;
 
 class PostController extends AbstractController
 {
-    protected $dataSelect = ['id','name','image','status'];
+    protected $dataSelect = ['id','name','image','status','slug'];
 
     protected $categoryRepository;
 

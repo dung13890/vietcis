@@ -24,7 +24,7 @@
 @stop
 @section('page-content')
 
-<div class="map margin-bottom-60">				
+<div class="map margin-bottom-60 text-center">				
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29799.592898991556!2d105.80023864062622!3d20.994676871870006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac927ce95957%3A0xe230355f8983adb9!2zVGhhbmggWHXDom4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1454534955659" width="1400" height="280" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
 <div class="container">
@@ -40,6 +40,7 @@
 						{{$configs->phone}}<br>
 						<a href="mailto:{{$configs->email}}">{{$configs->email}}</a>
 					</p>
+					{!!$configs->content!!}
 				</div>
 			</div>
 		</div>

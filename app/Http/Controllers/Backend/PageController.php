@@ -8,7 +8,7 @@ use App\Services\Contracts\PageService;
 
 class PageController extends AbstractController
 {
-    protected $dataSelect = ['id','name','status','created_at'];
+    protected $dataSelect = ['id','name','status','created_at','slug'];
 
     public function __construct(PageRepository $page)
     {

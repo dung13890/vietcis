@@ -27,16 +27,28 @@
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('icon_fa','Icon', ['class'=>'col-sm-2 control-label']) !!}
+			{!! Form::label('link','Link', ['class'=>'col-sm-2 control-label']) !!}
 			<div class="col-sm-8">
-			{!! Form::text('icon_fa',null, ['class' => 'form-control','placeholder'=>'fa-truck']) !!}
+			{!! Form::text('link',null, ['class' => 'form-control','placeholder'=>'Http:// Link chi tiết']) !!}
 			</div>
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('link','Link', ['class'=>'col-sm-2 control-label']) !!}
+			{!! Form::label('icon_fa','Icon ( 45 x 45 )', ['class'=>'col-sm-2 control-label']) !!}
 			<div class="col-sm-8">
-			{!! Form::text('link',null, ['class' => 'form-control','placeholder'=>'Http:// Link chi tiết']) !!}
+				<div class="fileinput fileinput-new" style="width: 100%;" data-provides="fileinput">
+					<div class="fileinput-preview thumbnail mb20" data-trigger="fileinput" style="width: 150px; height: 100px;">
+						{!! HTML::image( (isset($item) && $item->icon_fa )? asset($item->icon_fa) :  asset('assets/backend/img/no-image.png'), '') !!}
+					</div>
+					<div>
+						<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Xóa</a>
+						<div class="btn btn-default btn-file">
+						<span class="fileinput-new">Chọn ảnh</span>
+						<span class="fileinput-exists">Thay đôi</span>
+						{!! Form::file('icon_fa') !!}
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 

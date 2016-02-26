@@ -29,8 +29,6 @@ class ServiceController extends AbstractController
 
     public function store(ServiceRequest $request, ServiceService $service)
     {
-        \Cache::forget('serviceFoot'); 
-        \Cache::forget('productFoot'); 
     	$data = $request->all();
         return $this->storeData($data, $service);
     }
@@ -47,8 +45,6 @@ class ServiceController extends AbstractController
 
     public function update(ServiceRequest $request, ServiceService $service, $id)
     {
-        \Cache::forget('serviceFoot'); 
-        \Cache::forget('productFoot'); 
         $data = $request->all();
         return $this->updateData($data, $service, $id);
     }

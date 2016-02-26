@@ -9,6 +9,7 @@ use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Contracts\ServiceRepository;
 use App\Repositories\Contracts\PartnerRepository;
 use App\Repositories\Contracts\PageRepository;
+use App\Services\Contracts\MailService;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,7 @@ class HomeController extends Controller
 	{
 	    $compacts['slides'] = app(SlideRepository::class)->getHome(3);
 	    $compacts['boxHome'] = app(SlideRepository::class)->settingHome(4); 
-	    $compacts['posts'] = app(PostRepository::class)->getHome(8);
+	    $compacts['posts'] = app(PostRepository::class)->getHome(3,['slug','name','intro']); 
 	    $compacts['services'] = app(ServiceRepository::class)->getHome(6);
 	    $compacts['partners'] = app(PartnerRepository::class)->getHome(6);
 	    return view('frontend.home.index',$compacts);
@@ -33,8 +34,9 @@ class HomeController extends Controller
 		return view('frontend.home.contact');
 	}
 
-	public function postContact(Request $request)
+	public function postContact(Request $request, MailService $mail)
 	{
+		$mail->send($request->all());
 		return redirect(url()->previous());
 	}
 }

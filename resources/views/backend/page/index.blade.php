@@ -14,6 +14,7 @@
 			    [
 			        { data: 'id', name: 'id', searchable: false },
 			        { data: 'name', name: 'name'},
+			        { data: 'slug', name: 'slug'},
 			        { data: 'status', orderable: true, name: 'status'},
 			        { data: 'created_at', name: 'created_at'},
 			        { data: 'actions', name: 'actions', orderable: false, searchable: false, sClass: "text-center"}
@@ -21,12 +22,13 @@
 		    	createdRow: function ( row, data, index ) {
 		    		$('td', row).eq(0).css('display','none');
 		    		if (data.actions.edit) {
-		    			$('td', row).eq(1).html('<a target="_blank" title="'+data.actions.edit.label+'" href="'+data.actions.edit.uri+'">'+data.name+'</a>');
+		    			$('td', row).eq(1).html('<a target="_blank" title="'+data.actions.edit.label+'" href="'+laroute.route('page.show',{slug:data.slug})+'">'+data.name+'</a>');
 		    		}
-		    		$('td',row).eq(2).html(data.status==1 ? 'Active' : 'Disabled');
+		    		$('td',row).eq(2).html(location.protocol + "//" + location.host + laroute.route('page.show',{slug:data.slug}));
+		    		$('td',row).eq(3).html(data.status==1 ? 'Active' : 'Disabled');
 		    		var actions = data.actions;
 		    		if (!actions || actions.length < 1) { return; }
-		    		var $actions = $('td', row).eq(4);
+		    		var $actions = $('td', row).eq(5);
 		    		$actions.html('');
 		    		if (actions.edit) { $actions.append('<a title ="'+actions.edit.label+'" class="btn btn-default btn-xs" href="'+actions.edit.uri+'"><i class="fa fa-pencil"></i></a> ');}
 		    		if (actions.delete) {
@@ -75,6 +77,7 @@
 								<tr>
 									<th style="display:none">ID</th>
 									<th>Name</th>
+									<th>Link</th>
 									<th>Status</th>
 									<th>Created_at</th>
 									<th>Actions</th>

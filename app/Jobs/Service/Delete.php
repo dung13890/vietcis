@@ -17,6 +17,9 @@ class Delete extends Job
 
     public function handle(ServiceRepository $repository)
     {
+    	if (!empty($this->entity->icon_fa)) {
+            $this->destroyImage($this->entity->icon_fa);
+        }
         $repository->delete($this->entity);
     }
 }

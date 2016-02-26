@@ -14,7 +14,7 @@
         </div>
     </div>
 	<div class="row">
-		{!! Form::model($item, ['method' => 'PATCH', 'url' => route('admin.service.update', $item->id), 'class' => 'form-horizontal', 'autocomplete'=>'off']) !!}
+		{!! Form::model($item, ['method' => 'PATCH', 'files' => true, 'url' => route('admin.service.update', $item->id), 'class' => 'form-horizontal', 'autocomplete'=>'off']) !!}
 		<div class="col-sm-10">
 			@include('backend.service._form')       
 		</div>

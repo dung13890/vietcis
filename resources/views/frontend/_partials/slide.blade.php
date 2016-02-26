@@ -1,37 +1,37 @@
+<div class="container">
 <!-- JUMBOTRON -->
 <div class="jumbotron jumbotron--with-captions">
     
     <div data-interval="5000" data-ride="carousel" id="headerCarousel" class="carousel slide">
 
         <div class="carousel-inner">
-            <?php $dem = 0?>
+            <?php
+                $dem = 0;
+                $arrayPosts = $posts->toArray();
+            ?>
                 @foreach($slides as $slide)
-                <?php $dem++;
-                    $text = explode('-',$slide->name);
-                    if (count($text) == 1) {
-                        $text[0] = $slide->name;
-                        $text[1] = '';
-                    }
-                ?>
-            <div class="item @if ($dem == 1) active @endif">
-                <img alt="{{$text[0]}}" sizes="100vw" src="{{asset($slide->image)}}">
-                <div class="container">
+            <div class="item @if ($dem == 0) active @endif">
+                <img alt="{{$arrayPosts[$dem]['name'] or ''}}" sizes="100vw" src="{{asset($slide->image)}}">
+                <div class="container hidden-xs">
                     <div class="jumbotron-content">
                         <div class="jumbotron-content__title">
-                            <h1>{{$text[0]}}</h1>
+                            <h3>{{$arrayPosts[$dem]['name'] or ''}}</h3>
                         </div>
                         <div class="jumbotron-content__description">
                             <p class="p1">
-                                <span class="s1">{{$text[1]}}</span>
+                                <span class="s1">{{$arrayPosts[$dem]['intro'] or ''}}</span>
                             </p>
                             <p>
-                                <a target="_self" href="{{$slide->link}}" class="btn btn-primary">CHI TIẾT</a>
+                                @if (isset($arrayPosts[$dem]['intro']))
+                                <a target="_self" href="{{route('post.show',$arrayPosts[$dem]['slug'])}}" class="btn btn-primary">CHI TIẾT</a>
+                                @endif
                             </p>
                             <div class="w69b-screencastify-mouse"></div>
                         </div>
                     </div>
                 </div>
             </div><!-- /.item -->
+            <?php $dem++; ?>
             @endforeach            
         </div><!-- /.carousel-inner -->
     
@@ -48,3 +48,4 @@
     </div><!-- /.carousel -->
     
 </div><!-- /.jumbotron -->
+</div>
